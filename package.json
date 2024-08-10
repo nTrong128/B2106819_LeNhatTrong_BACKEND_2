@@ -4,6 +4,7 @@
   "description": "contactbook backend part 1",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Le Nhat Trong",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
+    "nodemon": "^3.1.4",
     "prettier": "^3.3.3"
   }
 }
