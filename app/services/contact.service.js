@@ -41,6 +41,34 @@ class ContactService {
         })
     }
 
+    async findById(id) {
+        return await this.Contact.findOne({
+            _id: ObjectId.isValid(id) ? ObjectId.createFromHexString(id) : null,
+        });
+    }
+
+    async update(id, payload) {
+        const filter = {
+            _id: ObjectId.isValid(id) ? ObjectId.createFromHexString(id) : null,
+        };
+        const update = this.extractContactData(payload);
+        const result = await this.Contact.findOneAndUpdate(
+            filter,
+            {
+                $set: update,
+            },
+            { returnDocument: "after" }
+        );
+        return result;
+    }
+
+    async delete(id) {
+        const result = await this.Contact.deleteOne({
+            _id: ObjectId.isValid(id) ? ObjectId.createFromHexString(id) : null,
+        });
+        return result;
+    }
+
 }
 
 module.exports = ContactService;
