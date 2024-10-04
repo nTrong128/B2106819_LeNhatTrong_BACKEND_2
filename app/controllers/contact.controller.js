@@ -26,7 +26,7 @@ exports.findAll = async (req, res, next) => {
     const {name} = req.query;
     if (name) {
       document = await contactService.findByName(name);
-      // http://localhost:3000/api/contacts?name=Anh
+      // http://localhost:3000/api/contacts?name=Huy
     } else {
       document = await contactService.find({});
       // http://localhost:3000/api/contacts
